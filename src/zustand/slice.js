@@ -57,31 +57,25 @@ const useStore = create((set) => ({
           ? state.checkedBrands.filter((b) => b._id !== brand._id)
           : [...state.checkedBrands, brand],
       };
-    }), /*
-     toggleCategory: (category) => {
-       set((state) => {
-         const isCategoryChecked = state.checkedCategorys.some((c) => c._id === category._id);
-         if (isCategoryChecked) {
-           state.checkedCategorys = state.checkedCategorys.filter((c) => c._id !== category._id);
-         } else {
-           state.checkedCategorys.push(category);
-         }
-       });
-     },
-     toggleColor: (color) => {
-       set((state) => {
-         const isColorChecked = state.checkedColors.some((c) => c._id === color._id);
-         if (isColorChecked) {
-           state.checkedColors = state.checkedColors.filter((c) => c._id !== color._id);
-         } else {
-           state.checkedColors.push(color);
-         }
-       });
-     }, */
-    toggleBrand: (brand) => set((state) => ({ checkedBrands: [...state.checkedBrands, brand] })), 
-    toggleCategory: (category) => set((state) => ({ checkedCategorys: [...state.checkedCategorys, category] })),
-    toggleColor: (color) => set((state) => ({ checkedColors: [...state.checkedColors, color] })),
-
+    }), 
+    toggleCategory: (category) =>
+    set((state) => {
+      const isCategoryChecked= state.checkedCategorys.some((c) => c._id === category._id);
+      return {
+        checkedCategorys: isCategoryChecked
+        ? state.checkedCategorys.filter((c) => c._id !== category._id)
+        : [...state.checkedCategorys, category]
+      };
+    }),
+    toggleColor: (color) => 
+    set((state) => {
+      const isColorChecked = state.checkedColors.some((c) => c._id === color._id);
+      return {
+        checkedColors: isColorChecked 
+        ? state.checkedColors.filter((c) => c._id !== color._id)
+        : [...state.checkedColors, color]
+      };
+    }),
 }));
 
 export default useStore;

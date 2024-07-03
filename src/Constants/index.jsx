@@ -79,7 +79,7 @@ export const paginationItems = [
     _id: "4",
     img: men4,
     productName: "Clothes",
-    price: "450",
+    price: "500",
     color: "Red",
     brand: "Zara",
     des: "dasfdahfsdhaks",

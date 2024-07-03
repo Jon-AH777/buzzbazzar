@@ -3,15 +3,13 @@
 import useStore from "@/zustand/slice";
 import Product from "../home/products/Product";
 import { makeSelectedBrands, makeSelectedCategories, makeSelectedColors } from "@/zustand/selectors";
-import { paginationItems } from "@/Constants";
 import { useState } from "react";
-
-const items = paginationItems;
 
 const Pagination = ({ currentItems }) => {
   const selectedBrands = useStore(makeSelectedBrands);
   const selectedCategories = useStore(makeSelectedCategories);
   const selectedColors = useStore(makeSelectedColors);
+  
 
   const filteredItems = currentItems.filter((item) => {
     const isBrandSelected =
@@ -33,19 +31,20 @@ const Pagination = ({ currentItems }) => {
   const itemsPerPage = 5; // Number of items per page
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  
- 
+
+
   const entries = filteredItems.slice(startIndex, endIndex);
   const handleNextPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);
-};
+  };
 
-const handlePrevPage = () => {
+  const handlePrevPage = () => {
     setCurrentPage((prevPage) => prevPage - 1);
-};
+  };
 
   return (
     <>
+      
       <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 mdl:gap-4 lg:gap-10'>
         {entries.map((item) => (
           <div key={item._id} className="w-full">
