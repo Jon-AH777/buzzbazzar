@@ -43,7 +43,7 @@ const Footer = () => {
             <span className="font-semibold">+1 234 567 890</span>
             <div className="flex gap-6">
               {socialMediaIcons.map((icon) => (
-                <Image key={icon} src={`/${icon}`} alt="" width={16} height={16} />
+                <Image key={icon} src={`/${icon}`} alt="snicons" width={16} height={16} />
               ))}
             </div>
           </div>
@@ -78,7 +78,7 @@ const Footer = () => {
             <span className="font-semibold">Secure Payments</span>
             <div className="flex justify-between">
               {payIcons.map((icon) => (
-                <Image key={icon} src={`/${icon}`} alt="" width={40} height={20} />
+                <Image key={icon} src={`/${icon}`} alt="payicons" width={40} height={20} />
               ))}
             </div>
           </div>

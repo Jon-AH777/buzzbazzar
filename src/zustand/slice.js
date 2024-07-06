@@ -7,7 +7,7 @@ const useStore = create((set) => ({
     checkedBrands: [],
     checkedCategorys: [],
     checkedColors: [],
-    addToCart: (item) => {
+    addToCart: (item) => 
         set((state) => {
             const existingItem = state.products.find((p) => p._id === item._id);
             if (existingItem) {
@@ -17,8 +17,8 @@ const useStore = create((set) => ({
             }
             // Dispatch a success toast
             // You can use a toast library or handle this differently in your app
-        });
-    },
+        }),
+    
     increaseQuantity: (itemId) => {
         set((state) => {
             const item = state.products.find((p) => p._id === itemId);

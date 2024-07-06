@@ -34,7 +34,7 @@ const Page = () => {
         <div className="w-[20%] lgl:w-[25%] hidden mdl:inline-flex h-full">
           <ShopSideNav />
         </div>
-        <div className="w-full mdl:w-[80%] lgl:w-[75%] h-full flex flex-col gap-10">
+        <div className="w-full mdl:w-[80%] lgl:w-[75%] h-full flex flex-col justify-center items-center gap-10">
           <Filter handleSort={handleSort} sortOption={sortOption} />
           <Pagination currentItems={currentItems}  /> 
         </div>
