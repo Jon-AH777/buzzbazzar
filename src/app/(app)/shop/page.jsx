@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react'
+import { useState } from 'react' 
 import React from 'react'
 import ShopSideNav from '@/components/shop/ShopSideNav'
 import Pagination from '@/components/shop/Pagination'
@@ -8,8 +8,8 @@ import { paginationItems } from '@/Constants'
 import Filter from '@/components/shop/Filter'
 
 
-const Page = () => {
-  const [currentItems, setCurrentItems] = useState(paginationItems);
+const Page = ({ items }) => {
+ const [currentItems, setCurrentItems] = useState(paginationItems);
   const [ sortOption, setSortOption ] = useState("Default");
   const handleSort = (option) => {
     setSortOption(option)
@@ -26,7 +26,9 @@ const Page = () => {
         sortedItems = paginationItems;
     }
     setCurrentItems(sortedItems);
-  }
+  } 
+
+  
 
   return (
     <div className='max-w-container mt-4 mx-auto px-4'>
@@ -35,8 +37,9 @@ const Page = () => {
           <ShopSideNav />
         </div>
         <div className="w-full mdl:w-[80%] lgl:w-[75%] h-full flex flex-col justify-center items-center gap-10">
-          <Filter handleSort={handleSort} sortOption={sortOption} />
-          <Pagination currentItems={currentItems}  /> 
+          <Filter handleSort={handleSort} sortOption={sortOption} /> 
+          <Pagination currentItems={currentItems}  />  
+  
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import useStore from '@/zustand/slice';
+import {useStore} from '@/zustand/slice';
 import NavTitle from './NavTitle';
 import { useState } from 'react';
 const Category = () => {
@@ -20,9 +20,10 @@ const Category = () => {
 
   ];
   const [showCategorys, setShowCategorys] = useState(true);
-  const checkedCategorys = useStore((state) => state.checkedCategorys);
-  const toggleCategory = useStore((state) => state.toggleCategory);
-
+  const { checkedCategorys, toggleCategory } = useStore((state) => ({
+    checkedCategorys: state.checkedCategorys,
+    toggleCategory: state.toggleCategory,
+  }))
   return (
     <div>
       <div

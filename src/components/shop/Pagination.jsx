@@ -1,6 +1,6 @@
 'use client';
 
-import useStore from "@/zustand/slice";
+import {useStore} from "@/zustand/slice";
 import Product from "../home/products/Product";
 import { makeSelectedBrands, makeSelectedCategories, makeSelectedColors } from "@/zustand/selectors";
 import { useState } from "react";
@@ -9,6 +9,7 @@ const Pagination = ({ currentItems }) => {
   const selectedBrands = useStore(makeSelectedBrands);
   const selectedCategories = useStore(makeSelectedCategories);
   const selectedColors = useStore(makeSelectedColors);
+
   
   const filterItems = (item) => {
     const isBrandSelected = selectedBrands.length === 0 || selectedBrands.some((brand) => brand.title === item.brand);
@@ -48,6 +49,7 @@ const Pagination = ({ currentItems }) => {
               price={item.price}
               color={item.color}
               des={item.des}
+              productData={currentItems}
             />
           </div>
         ))}

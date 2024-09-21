@@ -40,7 +40,6 @@ import {
   kid9,
   kid10,
   kid11,
-  
 } from "/public/images/index.js";
 
 export const paginationItems = [
@@ -62,7 +61,7 @@ export const paginationItems = [
     color: "Red",
     brand: "Goldstar",
     des: " gor goer djfaklsdfldsakfsa",
-    cat: "Men",   
+    cat: "Men",
   },
 
   {
@@ -94,7 +93,6 @@ export const paginationItems = [
     brand: "Goldstar",
     des: "dasfdlakjfkdjsakld",
     cat: "Men",
-    
   },
   {
     _id: "6",
@@ -114,7 +112,7 @@ export const paginationItems = [
     color: "Blue",
     brand: "Gucci",
     des: "dfashfdhasfdlalhsj",
-    cat: "Men", 
+    cat: "Men",
   },
   {
     _id: "8",
@@ -242,8 +240,7 @@ export const paginationItems = [
   {
     _id: "20",
     img: women12,
-    productName: 
-      "CLothes",
+    productName: "CLothes",
     price: "450",
     color: "Red",
     brand: "Zara",
@@ -282,7 +279,6 @@ export const paginationItems = [
     brand: "Zara",
     des: "safdasfdafsa",
     cat: "Women",
-
   },
 
   {
@@ -304,7 +300,6 @@ export const paginationItems = [
     brand: "Gucci",
     des: "afsdfjklajslfkj;as",
     cat: "Women",
-
   },
   {
     _id: "26",
@@ -325,7 +320,6 @@ export const paginationItems = [
     brand: "Prada",
     des: "sahfkdhaksfldas",
     cat: "Kids",
-
   },
   {
     _id: "28",

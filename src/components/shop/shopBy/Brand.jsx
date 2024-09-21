@@ -1,7 +1,7 @@
 'use client';
 import { useState } from "react";
 import NavTitle from "./NavTitle";
-import useStore from "@/zustand/slice";
+import {useStore} from "@/zustand/slice";
 const Brand = () => {
   const brands = [
     {
@@ -24,8 +24,11 @@ const Brand = () => {
   ]
 
   const [showBrands, setShowBrands] = useState(true);
-  const checkedBrands = useStore((state) => state.checkedBrands); // Use Zustand state
-  const toggleBrand = useStore((state) => state.toggleBrand);
+  const { checkedBrands, toggleBrand } = useStore((state) => ({
+    checkedBrands: state.checkedBrands,
+    toggleBrand: state.toggleBrand,
+  }))
+  
   return (
     <div>
       <div className="cursor-pointer" onClick={() => setShowBrands(!showBrands)}>

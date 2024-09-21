@@ -1,10 +1,13 @@
+'use client';
+
 import { BsSuitHeartFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdOutlineLabelImportant } from "react-icons/md";
 import ImageDetail from '@/components/designLayouts/ImageDetail';
-import useStore from "@/zustand/slice";
+import  {useStore}  from "@/zustand/slice";
 import { useRouter } from "next/navigation";
-
+import { paginationItems } from "@/Constants";
+import { useState } from "react";
 const ActionButton = ({ onClick, text, icon }) => (
     <li
        
@@ -16,7 +19,12 @@ const ActionButton = ({ onClick, text, icon }) => (
     </li>
 );
 
-const Product = ({ img, productName, price, color, product, item}) => {
+const Product = ({ img, productName, price, color, product, item, productData}) => {
+    const [currentItems, setCurrentItems] = useState(paginationItems);
+    const { addToCart, products } = useStore((state) => ({
+        addToCart: state.addToCart,
+        products: state.products,
+      }));
     const rootId = productName.toLowerCase().replace(/\s+/g, '');
     const router = useRouter();   
 
@@ -28,28 +36,6 @@ const Product = ({ img, productName, price, color, product, item}) => {
         });
       };
 
-    /* const { addToCart } = useStore();  */
-
-    /* const handleAddToCart = () => {
-        addToCart({
-            _id: _id,
-            name: productName,
-            quantity: 1,
-            image: img,
-            price: price,
-            colors: color,
-        })
-    }  */ 
-
-    const addToCart = useStore((state) => state.addToCart);
-    const products = useStore((state) => state.products);
-
-
-   /* const handleAddToCart = () => {
-    addToCart(item); // Pass your product object here
-    // You can also dispatch a success toast here if needed
-  }; */ 
- 
 
     return (
         <div className=" w-11/12 relative group">
@@ -62,7 +48,12 @@ const Product = ({ img, productName, price, color, product, item}) => {
                         <ActionButton
                             text="Add to Cart"
                             icon={<FaShoppingCart />}
-                            onClick={() => addToCart(item)}
+                            onClick={() => 
+                                addToCart({
+                                    ...currentItems ,
+                                    quantity: 1,    
+                                })
+                            }
                         />
                         <ActionButton
                             text="View Details"

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import NavTitle from './NavTitle';
-import useStore from '@/zustand/slice';
+import {useStore} from '@/zustand/slice';
 const Color = () => {
   const colors = [
     {
@@ -33,8 +33,10 @@ const Color = () => {
   ];
 
   const [showColors, setShowColors] = useState(true);
-  const checkedColors = useStore((state) => state.checkedColors);
-  const toggleColor = useStore((state) => state.toggleColor);
+const { checkedColors, toggleColor } = useStore((state) =>({
+  checkedColors: state.checkedColors,
+  toggleColor: state.toggleColor,
+}))
 
   return (
     <div>
